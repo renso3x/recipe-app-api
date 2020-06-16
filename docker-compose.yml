@@ -1,0 +1,16 @@
+# Configuration of our docker
+version: "3"
+
+# Services
+services:
+  #name of service
+  app:
+    build:
+      context: . #current directory
+    ports:
+      - "8000:8000" #port to our host:8000
+    volumes:
+      - ./app:/app #map from our directory to docker container
+    command: >
+      sh -c "python manage.py runserver 0.0.0.0:8000"
+
