@@ -22,7 +22,7 @@ class PublicTagsApiTest(TestCase):
         """Test that login is required for retrieving tags"""
         res = self.client.get(TAGS_URLS)
 
-        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
 class PrivateTagsApiTest(TestCase):
